@@ -87,7 +87,7 @@ resource "aws_instance" "server" {
     type        = "ssh"
     user        = "ubuntu"  # Replace with the appropriate username for your EC2 instance
     private_key = file("~/.ssh/id_rsa")  # Replace with the path to your private key
-#here you give private keyvalu pain that is .pem file
+#here you give private keyvalu pair that is .pem file
     host        = self.public_ip
   }
 
