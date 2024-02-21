@@ -10,6 +10,10 @@ variable "cidr" {
 resource "aws_key_pair" "example" {
   key_name   = "terraform-demo-abhi"  # Replace with your desired key name
   public_key = file("~/.ssh/id_rsa.pub")  # Replace with the path to your public key file
+
+#if the the key valu pair in your local mechine convert .pem to .pub(public) by using( ssh-keygen -y -f private_key1.pem > public_key1.pub) 
+then give the path like user/vamsi/downloads/sai.pub
+dont include ~/.ssh
 }
 
 resource "aws_vpc" "myvpc" {
@@ -83,6 +87,7 @@ resource "aws_instance" "server" {
     type        = "ssh"
     user        = "ubuntu"  # Replace with the appropriate username for your EC2 instance
     private_key = file("~/.ssh/id_rsa")  # Replace with the path to your private key
+#here you give private keyvalu pain that is .pem file
     host        = self.public_ip
   }
 
